@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+input, button
+{
+    font-size: 25px;
+    border-radius: 10px;
+}
+        </style>
+    </head>
+    <body>
+        <input type='text' name='to_do' class='add' placeholder='Enter text'/>
+        <button class='button'>add</button>
+        <ul class='container'></ul>
+        <script>
+let container = document.querySelector('.container')
+let button = document.querySelector('.button')
+let list = ''
+
+function add_to_do(){
+    let add_text = document.querySelector('input')
+    let value = add_text.value
+    let to_do = `<li>${value}</li>`
+    list = list + to_do
+    container.innerHTML = list
+}
+button.addEventListener('click', add_to_do)
+button.addEventListener('click', () => document.querySelector('input').value='' )
+
+function del(event){
+    event.target.style.textDecoration = 'line-through'
+    event.target.style.color = 'red'
+}
+point = document.querySelector('ul')
+point.addEventListener('click', del)
+        </script>
+    </body>
+</html>
